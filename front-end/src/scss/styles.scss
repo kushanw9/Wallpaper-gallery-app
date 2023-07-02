@@ -37,23 +37,75 @@ main {
   justify-content: center;
 }
 
+
 main > .image {
-  $size: 200px;
-  width: $size;
+  $size: 180px;
+  width: 300px;
   height: $size;
-  background-size: cover;
-  background-position: center;
+  border: 1px dotted lightgray;
   border-radius: 10px;
   flex-shrink: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   transition-property: transform;
   transition-duration: 500ms;
+  position: relative;
+  overflow: hidden;
+
+  #img-overlay {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    //top: 100%;
+    //transition-property: top;
+    //transition-duration: 250ms;
+  }
+
+  #download {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    visibility: hidden;
+    //top: -100%;
+    //transition-property: top;
+    //transition-duration: 250ms;
+    //transition-delay: 50ms;
+    z-index: 99999;
+
+    svg {
+      width: 32px;
+      height: 32px;
+      font-weight: bold;
+      color: black;
+      background-color: rgba(255, 255, 255, 0.48);
+      padding: 5px;
+      border-radius: 3px;
+    }
+  }
 
   &:hover {
     cursor: pointer;
-    transform: scale(1.025);
+    transform: scale(1.1);
+    z-index: 999999999;
+
+    #img-overlay {
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+     transition-property: background-color;
+      transition-delay: 0.1s;
+    }
+
+    #download {
+      top: 0;
+      visibility: visible;
+    }
   }
 }
-
 .loader {
   width: 100%;
   height: 100%;
