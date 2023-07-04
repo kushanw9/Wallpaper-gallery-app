@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+//@CrossOrigin("*") // we have to check this
 @RequestMapping("/images")
 public class ImageController {
 
